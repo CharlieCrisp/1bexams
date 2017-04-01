@@ -16,9 +16,32 @@ function getLink(name){
     return link;
 }
 
+function checkSol(name) {
+    var thisName = name.substring(0,23);
+    console.log("short name is "+ thisName);
+    $.getJSON("hassol.json", function(json) {
+        for (j = 0; j <= json.length; j++) {
+            if (json[j]["name of paper"].substring(0,23) == thisName) {
+                if (json[j]["solutions?"] == "yes"){
+                    console.log("found solution for " + json[j]["name of paper"]);
+                    $('.solutions').attr('class', 'btn solutions');
+                    $('.solutions').click(function() {
+                        openSolPdf(name);
+                    });
+                    return;
+                } else {
+                    console.log("no solution found");
+                    $('.solutions').attr('class', 'btn solutions hidden');
+                    return;
+                }
+            }
+        }
+    });
+}
+
 function getSolLink(name){
     var year = name.substring(0,4);
-    var question = name.substring(27);
+    var question = name.substring(22,23);
     var paper = name.substring(11,12);
     var link = "http://www.cl.cam.ac.uk/teaching/exams/solutions/" + year +"/" + year + "-p0" + paper + "-q0" + question + "-solutions.pdf";
     return link;
@@ -52,12 +75,17 @@ function openModule(name) {
     });
 }
 
-function openPdf(name) { //name is in form 2019 paper 5 question 4 - solutionetc.
-    console.log("open pdf " + name);
-    var link = getLink(name);
-    console.log("opening link " + link);
+function openSolPdf(name) {
+    var link = getSolLink(name);
     $('#pdf').attr('data', link).attr('width', '100%');
     updateI(getModuleName(),name);
+}
+
+function openPdf(name) { //name is in form 2019 paper 5 question 4 - solutionetc.
+    var link = getLink(name);
+    $('#pdf').attr('data', link).attr('width', '100%');
+    updateI(getModuleName(),name);
+    checkSol(name);
 }
 
 function updateI(module, name) {

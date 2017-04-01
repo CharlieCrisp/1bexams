@@ -115,6 +115,13 @@ textarea {
     margin-right: auto;
 }
 
+.solutions {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
 .dropdown-menu {
     left: 50%;
     right:auto;
