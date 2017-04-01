@@ -99,7 +99,10 @@ textarea {
 }
 
 #left, #right {
-    margin-top: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    height:80px;
 }
 
 #module-selector {
@@ -124,15 +127,20 @@ textarea {
     padding-left: 70px;
 }
 
+.arrow {
+    background-color: #cccccc;
+}
 
+.pdf {
+    padding-left: 0;
+    padding-right: 0;
+}
 
-
-
-
-
-
-
-
+.navigator {
+    height:100%;
+    max-height: 600px;
+    overflow-y: scroll;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */

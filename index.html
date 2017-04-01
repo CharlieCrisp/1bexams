@@ -12,9 +12,9 @@
         <script src="js/link_generator.js"></script>
     </head>
     <body>
-        <div class="flexible-container">
+        <div class="flexible-container container-fluid">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-3 navigator">
                     <div id="module-selector" class="dropdown">
                         <button type="button" id="selector-button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Computer Design
@@ -44,14 +44,14 @@
                     </div>
                     <ul id="quest_list"></ul>
                 </div>
-                <div class="col-lg-1">
-                    <button id="left" class="btn" onclick="goLater()">Later</button>
+                <div class="col-lg-1 arrow">
+                    <img src= "img/left.png" id="left" onclick="goLater()">
                 </div>
-                <div class="col-lg-7">
+                <div class="col-lg-7 pdf">
                     <object id="pdf" data="http://www.cl.cam.ac.uk/teaching/exams/pastpapers/y2011p4q4.pdf" width="100%" height="800px"></object>
                 </div>
-                <div class="col-lg-1">
-                    <button id="right" class="btn" onclick="goEarlier()">Earlier</button>
+                <div class="col-lg-1 arrow">
+                    <img src= "img/right.png" id="right" onclick="goEarlier()">
                 </div>
             </div>
         </div>
